@@ -9,20 +9,17 @@ const userRouter= require('./routes/signup');
  const userRouterin = require('./routes/signin');
 
 app.use(express.json());
+
 const PORT = process.env.PORT || 3001;
 app.use(userRouter);  
- app.use(userRouterin);
+app.use(userRouterin);
 app.use('*', notFoundHandler);
 app.use(errorHandler);
 app.use(logger);
 
-
-
 app.get('/', (req, res) => {
-  res.status(200).send('everything is awesome ')
-
-})
-
+  res.status(200).send('everything is awesome.')
+  });
 
 
 
