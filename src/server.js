@@ -6,12 +6,12 @@ const notFoundHandler = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
 const logger = require('./middleware/logger');
 const userRouter= require('./routes/signup');
-// const userRouterin = require('./routes/signin');
+ const userRouterin = require('./routes/signin');
 
 app.use(express.json());
 const PORT = process.env.PORT || 3001;
 app.use(userRouter);  
-// app.use(userRouterin);
+ app.use(userRouterin);
 app.use('*', notFoundHandler);
 app.use(errorHandler);
 app.use(logger);
